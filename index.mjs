@@ -1,6 +1,6 @@
 import knightMoves from "./knightMoves.mjs";
 
-knightMoves([3, 3], [4, 3]); 
+knightMoves([3, 3], [4, 3]);
 // expected: You made it in 3 moves!  Here's your path:
 // [3,3]
 // [4,5]
