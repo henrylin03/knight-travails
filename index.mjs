@@ -6,3 +6,7 @@ knightMoves([3, 3], [4, 3]);
 // [4,5]
 // [2,4]
 // [4,3]
+
+knightMoves([0, 0], [3, 3]);
+knightMoves([3, 3], [0, 0]);
+knightMoves([0, 0], [7, 7]);

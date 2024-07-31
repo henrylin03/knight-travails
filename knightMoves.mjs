@@ -3,6 +3,11 @@ import createNode from "./createNode.mjs";
 const isSameArr = (arr1, arr2) => JSON.stringify(arr1) === JSON.stringify(arr2);
 
 export default function knightMoves(startCoordinates, endCoordinates) {
+  console.log(`
+Finding the shortest path a knight can travel on a chessboard from ${JSON.stringify(
+    startCoordinates
+  )} to ${JSON.stringify(endCoordinates)}...`);
+
   const findNodeAtEndCoordinates = () => {
     const startNode = createNode(startCoordinates);
     const nodesQueue = [startNode];
@@ -10,7 +15,6 @@ export default function knightMoves(startCoordinates, endCoordinates) {
 
     while (nodesQueue.length > 0) {
       const currentNode = nodesQueue.shift();
-      console.log("currentNode:", currentNode);
       if (isSameArr(currentNode.coordinates, endCoordinates))
         return currentNode;
 
@@ -27,8 +31,20 @@ export default function knightMoves(startCoordinates, endCoordinates) {
     }
   };
 
-  const matchingNode = findNodeAtEndCoordinates();
-  console.log(`You made it in ${matchingNode.depth} moves! Here's your path:
-${matchingNode.previousNode.coordinates}
-`);
+  const findPathFromStart = (node) => {
+    const res = [];
+
+    let currentNode = node;
+    while (currentNode) {
+      res.push(currentNode.coordinates);
+      currentNode = currentNode.previousNode;
+    }
+
+    return res.reverse();
+  };
+
+  const endNode = findNodeAtEndCoordinates();
+  const path = findPathFromStart(endNode);
+  console.log(`You made it in ${endNode.depth} moves! Here's your path:`);
+  path.forEach((coordinates) => console.log(coordinates));
 }
