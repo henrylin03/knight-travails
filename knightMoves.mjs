@@ -1,4 +1,4 @@
-import createKnight from "./createKnight.mjs";
+// import createKnight from "./createKnight.mjs";
 
 // helper to compare arrays
 const isSameArray = (arr1, arr2) =>
