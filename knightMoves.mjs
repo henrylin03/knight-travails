@@ -1,8 +1,7 @@
 // import createKnight from "./createKnight.mjs";
 
 // helper to compare arrays
-const isSameArray = (arr1, arr2) =>
-  JSON.stringify(arr1) === JSON.stringify(arr2);
+
 
 export default function knightMoves(startPosition, endPosition) {
   let movesCount = 0;
