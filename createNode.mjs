@@ -1,7 +1,7 @@
 export default function createNode(coordinates, depth = 0) {
   const previousNode = null;
 
-  const getValidNextMoves = () => {
+  const getNextCoordinates = () => {
     const res = [];
 
     const col = coordinates[0];
@@ -26,5 +26,5 @@ export default function createNode(coordinates, depth = 0) {
     return res;
   };
 
-  return { coordinates, depth, getValidNextMoves, previousNode };
+  return { coordinates, depth, getNextCoordinates, previousNode };
 }
